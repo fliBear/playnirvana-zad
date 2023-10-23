@@ -1,0 +1,28 @@
+<button class="back-btn" (click)="goBack()">{{"BACK" | translate}}</button>
+<div class="ticket-container" *ngIf="ticket">
+    <div class="ticket-data">
+        <span>{{"PAY_IN_AMOUNT" | translate}}: {{ticket.payInAmount}}</span>
+        <span *ngIf="ticket.payOutAmount">{{"PAY_OUT_AMOUNT" | translate}}: {{ticket.payOutAmount}}</span>
+        <span>{{"CURRENCY" | translate}}: {{ticket.currency}}</span>
+        <span>{{"TICKET_STATUS_CODE" | translate}}: {{ticket.status}}</span>
+        <span>{{"CREATED_AT" | translate}}: {{ticket.createdAt | date:"short"}}</span>
+    </div>
+    <a class="transactions-link" *ngIf="isAuthorized(grant.CanViewTransactions)" routerLink="/transactions" (click)="applyFilter()">Transactions</a>
+    <div class="bets-container">
+        <div class="bet-container" *ngFor="let bet of ticket.bets">
+            <span *ngIf="bet.baseLine">Base line: {{bet.baseLine}}</span>
+            <span>{{"ODDS" | translate}}: {{bet.odds}}</span>
+            <span>{{"SPORT" | translate}}: {{bet.sport}}</span>
+            <span>{{"LEAGUE" | translate}}: {{bet.league}}</span>
+            <span>{{"MARKET" | translate}}: {{bet.market}}</span>
+            <span>{{"STATUS_CODE" | translate}}: {{bet.status}}</span>
+            <span>{{"START_DATE" | translate}}: {{bet.startAt | date:"short"}}</span>
+            <div>
+                <span>{{"PARTICIPANTS" | translate}}</span>
+                <div class="participants-container" *ngFor="let participant of bet.participants">
+                    <span>{{participant}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

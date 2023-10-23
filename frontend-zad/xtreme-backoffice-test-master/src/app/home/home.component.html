@@ -1,0 +1,16 @@
+<nav class="navbar">
+    <a class="flex-center" routerLink="/dashboard">
+        <img src="../../assets/branding/small-logo.png" alt="Playnirvana">
+    </a>
+    <div class="nav-actions-container">
+        <form [formGroup]="languageForm" (change)="languageChange()" class="flex-center">
+            <select formControlName="language">
+                <option *ngFor="let language of languages" [value]="language">{{language | uppercase}}</option>
+            </select>
+        </form>
+        <button class="nav-action" (click)="logout()">{{"LOGOUT" | translate}}</button>
+    </div>
+</nav>
+<div>
+    <router-outlet></router-outlet>
+</div>

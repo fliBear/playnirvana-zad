@@ -1,0 +1,35 @@
+.navbar {
+    background-color: var(--brand-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    padding: 1em;
+}
+
+.nav-actions-container {
+    display: flex;
+    flex-direction: row;
+    width: 10em;
+    justify-content: space-between;
+}
+
+.nav-action {
+    background-color: var(--btn-color);
+    color: var(--btn-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.nav-action:hover {
+    background-color: var(--btn-color-hover);
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

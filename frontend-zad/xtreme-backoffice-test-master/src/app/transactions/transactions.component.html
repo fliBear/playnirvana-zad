@@ -1,0 +1,60 @@
+<div>
+    <button class="back-btn" (click)="goBack()">{{"BACK" | translate}}</button>
+    <form [formGroup]="filterForm" (ngSubmit)="applyFilter()">
+        <div class="form-select">
+            <select formControlName="playerId">
+                <option value="">{{"SELECT_PLAYER" | translate}}</option>
+                <option *ngFor="let player of players" [value]="player.id">{{player.firstName}} {{player.lastName}}</option>
+            </select>
+            <select formControlName="externalId">
+                <option value="">{{"SELECT_EXTERNAL_ID" | translate}}</option>
+                <option *ngFor="let id of externalIDs" [value]="id">{{id}}</option>
+            </select>
+            <select formControlName="type">
+                <option value="">{{"SELECT_TRANSACTION_TYPE" | translate}}</option>
+                <option *ngFor="let type of TransactionType | keyvalue" [value]="type.value">{{type.value}}</option>
+            </select>
+            <select formControlName="direction">
+                <option value="">{{"SELECT_DIRECTION" | translate}}</option>
+                <option *ngFor="let direction of TransactionDirection | keyvalue" [value]="direction.value">{{direction.value}}
+                </option>
+            </select>
+            <select formControlName="provider">
+                <option value="">{{"SELECT_PROVIDER" | translate}}</option>
+                <option *ngFor="let provider of TransactionProvider | keyvalue" [value]="provider.value">{{provider.value}}</option>
+            </select>
+        </div>
+        <div class="date">
+            <label for="created-from">{{"START_DATE" | translate}}:</label>
+            <input type="date" id="created-from" name="created-from" formControlName="createdFrom">
+        </div>
+        <div class="date">
+            <label for="created-to">{{"END_DATE" | translate}}:</label>
+            <input type="date" id="created-to" name="created-to" formControlName="createdTo">
+        </div>
+        <div class="btn-container">
+            <button class="form-btn" type="submit" [disabled]="filterForm.invalid">{{"FILTER" | translate}}</button>
+            <button class="form-btn" type="reset">{{"RESET" | translate}}</button>
+        </div>
+    </form>
+
+    <ul class="transaction-table">
+        <li class="transaction-table-columns">
+            <span>{{"TYPE_CODE" | translate}}</span>
+            <span>{{"AMOUNT" | translate}}</span>
+            <span>{{"CURRENCY" | translate}}</span>
+            <span>{{"CREATED_AT" | translate}}</span>
+        </li>
+        <li class="transaction" *ngFor="let transaction of transactions">
+            <div class="basic-transaction-info">
+                <span>{{transaction.type}}</span>
+                <span>{{transaction.amount}}</span>
+                <span>{{transaction.currency}}</span>
+                <span>{{transaction.createdAt | date:"short"}}</span>
+            </div>
+            <a class="details" routerLink="/transaction/{{transaction.id}}">
+                {{"DETAILS" | translate}}
+            </a>
+        </li>
+    </ul>
+</div>

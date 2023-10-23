@@ -1,0 +1,14 @@
+<div class="links-container">
+    <a class="dashboard-link" *ngIf="isAuthorized(grant.CanViewTransactions)" routerLink="/transactions">{{"TRANSACTIONS" | translate}}</a>
+    <a class="dashboard-link" *ngIf="isAuthorized(grant.CanViewTickets)" routerLink="/tickets">{{"TICKETS" | translate}}</a>
+</div>
+<div class="transaction-data">
+    <div class="revenue">
+        <span class="dashboard-info-text">{{"REVENUE" | translate}}: </span> {{revenue | number: "1.0-2"}} EUR
+    </div>
+    <div class="providers-container">
+        <div class="providers info-card" *ngFor="let pr of providerRevenue | keyvalue">
+            <span class="dashboard-info-text">{{"PROVIDER_REVENUE" |translate}}<br> {{pr.key}}: </span> {{pr.value}} EUR
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div>
+    <button class="back-btn" (click)="goBack()">{{"BACK" | translate}}</button>
+    <form [formGroup]="filterForm" (ngSubmit)="applyFilter()">
+        <div class="form-select">
+            <select formControlName="playerId">
+                <option value="">{{"SELECT_PLAYER" | translate}}</option>
+                <option *ngFor="let player of players" [value]="player.id">{{player.firstName}} {{player.firstName}}
+                </option>
+            </select>
+            <select formControlName="status">
+                <option value="">{{"SELECT_TICKET_STATUS" | translate}}</option>
+                <option *ngFor="let status of TicketStatus | keyvalue" [value]="status.value">{{status.value}}</option>
+            </select>
+        </div>
+        
+        <div class="date">
+            <label for="created-from">{{"START_DATE" | translate}}:</label>
+            <input type="date" id="created-from" name="created-from" formControlName="createdFrom">
+        </div>
+
+        <label for="created-to">{{"END_DATE" | translate}}:</label>
+        <input type="date" id="created-to" name="created-to" formControlName="createdTo">
+        
+        <div class="btn-container">
+            <button type="submit" class="form-btn" [disabled]="filterForm.invalid">{{"FILTER" | translate}}</button>
+            <button type="reset" class="form-btn">{{"RESET" | translate}}</button>
+        </div>
+    </form>
+    <ul class="tickets-table">
+        <li class="ticket-table-columns">
+            <span>{{"STATUS_CODE" | translate}}</span>
+            <span>{{"PAY_OUT" | translate}}</span>
+            <span>{{"PAY_IN" | translate}}</span>
+            <span>{{"CURRENCY" | translate}}</span>
+        </li>
+        <li class="ticket" *ngFor="let ticket of tickets">
+            <div class="basic-ticket-info">
+                <span>{{ticket.status}}</span>
+                <span>{{ticket.payInAmount}}</span>
+                <span>{{ticket.payOutAmount}}</span>
+                <span>{{ticket.currency}}</span>
+            </div>
+            <a class="details" routerLink="/ticket/{{ticket.id}}">
+                {{"DETAILS" | translate}}
+            </a>
+        </li>
+    </ul>
+</div>

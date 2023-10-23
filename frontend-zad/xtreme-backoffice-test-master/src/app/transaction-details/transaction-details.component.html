@@ -1,0 +1,17 @@
+<button class="back-btn" (click)="goBack()">{{"BACK" | translate}}</button>
+<div class="player-container">
+    <div>
+        <span class="player">{{player?.firstName}} {{player?.lastName}} </span> <span class="email">{{player?.email}}</span>
+    </div>
+</div>
+<div class="transaction-container">
+    <span>{{"TYPE_CODE" | translate}}: {{transaction?.type}}</span>
+    <span>{{"DIRECTION_CODE" | translate}}: {{transaction?.direction}}</span>
+    <span>{{"PROVIDER_CODE" | translate}}: {{transaction?.provider}}</span>
+    <span>{{"AMOUNT" | translate}}: {{transaction?.amount}}</span>
+    <span>{{"CURRENCY" | translate}}: {{transaction?.currency}}</span>
+    <span>{{"CREATED_AT" | translate}}: {{transaction?.createdAt | date:"short"}}</span>
+    <span *ngIf="transaction?.provider === provider.Sport && isAuthorized(grant.CanViewTickets)">
+        <a class="ticket-link" routerLink="/ticket/{{transaction?.externalId}}">{{"TICKET" | translate}}</a>
+    </span>
+</div>

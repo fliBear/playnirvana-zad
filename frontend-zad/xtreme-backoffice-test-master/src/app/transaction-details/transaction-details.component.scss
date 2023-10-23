@@ -1,0 +1,32 @@
+.transaction-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1em;
+    row-gap: 2em;
+    padding: 1em;
+    width: 30vw;
+}
+
+.player-container {
+    margin: 1em;
+}
+
+.ticket-link {
+    background-color: var(--btn-color);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--btn-text);
+}
+
+.ticket-link:hover {
+    background-color: var(--btn-color-hover);
+}
+
+.email {
+    color: blue;
+}
+
+.player {
+    font-weight: bold;
+}
