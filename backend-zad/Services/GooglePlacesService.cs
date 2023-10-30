@@ -11,9 +11,6 @@ public class GooglePlacesService : ILocationsService<PlacesApiResult>
     public async Task<PlacesApiResult> GetLocationData(string lat, string lang, string? searchKeyword, string? category)
     {
         using var client = new HttpClient();
-        // var response = await client.GetStringAsync(
-        //     String.Format("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={0},{1}&radius=1500&keyword={2}&type={3}&key={4}",
-        //     lat, lang, searchKeyword, category, apiKey));
         var response = JsonConvert.DeserializeObject<PlacesApiResult>(await client.GetStringAsync(
             String.Format("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={0},{1}&radius=1500&keyword={2}&type={3}&key={4}",
             lat, lang, searchKeyword, category, apiKey)));
