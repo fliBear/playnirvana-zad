@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace backend_zad.Services;
 public class GooglePlacesService : ILocationsService<PlacesApiResult>
 {
-    private readonly string apiKey = "AIzaSyDJbewQBO6Vs-jBQEy2BGjayemWRGa6z5s";
+    private readonly string apiKey = "";
     //Google Places API offers searching with link parameter: keyword and filtering by category using the parameter: type
     public async Task<PlacesApiResult> GetLocationData(string lat, string lang, string? searchKeyword, string? category)
     {
