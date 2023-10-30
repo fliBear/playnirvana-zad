@@ -29,3 +29,10 @@ D:\PlaynirvanaZadatak\signal-r-client\bin\Debug\net7.0\Microsoft.Extensions.Prim
 D:\PlaynirvanaZadatak\signal-r-client\bin\Debug\net7.0\System.IO.Pipelines.dll
 D:\PlaynirvanaZadatak\signal-r-client\obj\Debug\net7.0\signal-r-client.csproj.AssemblyReference.cache
 D:\PlaynirvanaZadatak\signal-r-client\obj\Debug\net7.0\signal-r-client.csproj.CopyComplete
+D:\PlaynirvanaZadatak\signal-r-client\bin\Debug\net7.0\Microsoft.Extensions.Configuration.dll
+D:\PlaynirvanaZadatak\signal-r-client\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\PlaynirvanaZadatak\signal-r-client\bin\Debug\net7.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\PlaynirvanaZadatak\signal-r-client\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Json.dll
+D:\PlaynirvanaZadatak\signal-r-client\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\PlaynirvanaZadatak\signal-r-client\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Physical.dll
+D:\PlaynirvanaZadatak\signal-r-client\bin\Debug\net7.0\Microsoft.Extensions.FileSystemGlobbing.dll

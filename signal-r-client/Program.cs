@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore.SignalR.Client;
+﻿using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.Configuration;
 using signalrclient.Models;
 
 namespace signalrclient;
@@ -7,8 +7,16 @@ internal class SignalRClient
 {
     static async Task Main(string[] args)
     {
+
+        var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+        string ConnectionString = configuration["ConnectionString"] ?? "failure";
+
         var hubConnection = new HubConnectionBuilder()
-            .WithUrl("http://localhost:5188/Places")
+            .WithUrl(ConnectionString)
             .Build();
 
         //Get notification that a request has been created and invoke the hub method to get the new request
